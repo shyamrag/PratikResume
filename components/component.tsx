@@ -20,6 +20,10 @@ export function Component() {
     { id: 4, title: "20 Min Business Plan", src: "/pdfs/business-plan.pdf", description: "29 mins of the 20 min business plan" }
   ];
 
+  const handleCertificateClick = (certificate: Certificate) => {
+    setSelectedCertificate(certificate);
+  };
+
   return (
     <div key="1" className="w-full min-h-screen bg-gray-900 text-white">
       <header className="bg-opacity-50 backdrop-blur-sm py-4 sticky top-0 z-50">
@@ -176,34 +180,35 @@ export function Component() {
           </div>
         </section>
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
-  <h2 className="text-3xl font-bold text-center mb-8 text-white">My Certificates</h2>
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
-    {certificates.map((certificate) => (
-      <div key={certificate.id} className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl cursor-pointer">
-        <div className="bg-white bg-opacity-90 rounded-lg p-6 flex flex-col items-center justify-center shadow-lg" style={{ minHeight: '250px' }}>
-          <p className="text-lg font-medium text-gray-800 text-center">{certificate.title}</p>
-        </div>
+      <h2 className="text-3xl font-bold text-center mb-8 text-white">My Certificates</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
+        {certificates.map((certificate) => (
+          <div key={certificate.id} className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+            onClick={() => handleCertificateClick(certificate)}>
+            <div className="bg-white bg-opacity-90 rounded-lg p-6 flex flex-col items-center justify-center shadow-lg" style={{ minHeight: '250px' }}>
+              <p className="text-lg font-medium text-gray-800 text-center">{certificate.title}</p>
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
 
-  {selectedCertificate && (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
-      <div className="bg-white rounded-lg w-3/4 max-w-4xl p-8 text-black overflow-auto shadow-lg animate-fade-in">
-        <h3 className="text-xl font-bold mb-4">{selectedCertificate.title} Certificate</h3>
-        <object data={selectedCertificate.src} type="application/pdf" width="100%" style={{ minHeight: '500px' }}>
-          <p>Your browser does not support PDFs. <a href={selectedCertificate.src}>Download the PDF</a> to view it.</p>
-        </object>
-        <button
-          className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors"
-          onClick={() => setSelectedCertificate(null)}
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  )}
-</section>
+      {selectedCertificate && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg w-3/4 max-w-4xl p-8 text-black overflow-auto shadow-lg animate-fade-in">
+            <h3 className="text-xl font-bold mb-4">{selectedCertificate.title} Certificate</h3>
+            <object data={selectedCertificate.src} type="application/pdf" width="100%" style={{ minHeight: '500px' }}>
+              <p>Your browser does not support PDFs. <a href={selectedCertificate.src} download={`${selectedCertificate.title.replace(/\s+/g, '_')}_Certificate.pdf`}>Download the PDF</a> to view it.</p>
+            </object>
+            <button
+              className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors"
+              onClick={() => setSelectedCertificate(null)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
 
       </main>
       <footer className="bg-gray-900 py-4">
