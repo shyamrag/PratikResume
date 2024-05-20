@@ -40,7 +40,7 @@ export function Component() {
               <div className="md:w-3/5">
                 <h2 className="text-3xl font-bold mb-4">Professional Profile and Resume</h2>
                 <p className="mb-6 text-lg leading-relaxed">
-                  I am a dedicated and proactive BBA graduate, currently pursuing a Master's in Supply Chain Logistics from TU Dublin University. 
+                  I am a dedicated and proactive BBA graduate, currently pursuing a Master&apos;s in Supply Chain Logistics from TU Dublin University. 
                   With a strong foundation in supply chain management and a demonstrated history of working in the petrol pump industry, 
                   my expertise includes operations management, staff supervision, inventory control, and logistics optimization.
                 </p>
@@ -70,54 +70,55 @@ export function Component() {
           </div>
         </section>
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            <div>
-              <img
-                alt="Case Study"
-                className="w-full h-auto rounded-lg object-cover shadow-lg cursor-pointer"
-                src="/bodywash.jpg" // Update the path as necessary
-                onClick={() => setModalOpen(true)}
-              />
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-4">
-                Unilever's Approach to Sustainable Business Practices
-              </h3>
-              <p className="mb-6 text-lg leading-relaxed">
-                This case study explores Unilever's comprehensive sustainability strategies, illustrating how the company integrates these practices across its entire business model. The focus on the Dove Refillable Body Wash exemplifies Unilever's innovative approach to reducing plastic waste and promoting a circular economy. By adopting sustainable packaging solutions and implementing life cycle thinking in product design, Unilever not only reduces its environmental impact but also establishes a benchmark for the industry.
-              </p>
-              <button
-                className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-6 py-3 text-base font-medium shadow transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-indigo-600"
-                onClick={() => setModalOpen(true)}
-              >
-                Read Case Study
-              </button>
-            </div>
-          </div>
-          {isModalOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center">
-              <div className="bg-white rounded-lg p-6 md:p-8 lg:p-10 max-w-4xl mx-auto text-black overflow-auto" style={{ maxHeight: '90vh' }}>
-                <h2 className="text-xl font-bold mb-4">Sustainable Business Practices at Unilever</h2>
-                <p className="text-lg leading-relaxed">
-                  Explore Unilever's commitment to sustainable development through its Dove Refillable Body Wash initiative. This case study outlines the process from raw material extraction to the end consumer, showcasing Unilever's strategies to reduce environmental impact and promote sustainable consumption.
-                </p>
-                <a
-                  href="/casestudy.doc"
-                  download="Unilever_Case_Study.doc"
-                  className="inline-flex items-center justify-center mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors"
-                >
-                  Download Full Case Study
-                </a>
-                <button
-                  className="mt-4 ml-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors"
-                  onClick={() => setModalOpen(false)}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          )}
-        </section>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+    <div>
+      <img
+        alt="Case Study"
+        className="w-full h-auto rounded-lg object-cover shadow-lg cursor-pointer"
+        src="/bodywash.jpg" // Update the path as necessary
+        onClick={() => setModalOpen(true)}
+      />
+    </div>
+    <div>
+      <h3 className="text-2xl font-bold mb-4">
+        Unilever&apos;s Approach to Sustainable Business Practices
+      </h3>
+      <p className="mb-6 text-lg leading-relaxed">
+        This case study explores Unilever&apos;s comprehensive sustainability strategies, illustrating how the company integrates these practices across its entire business model. The focus on the Dove Refillable Body Wash exemplifies Unilever&apos;s innovative approach to reducing plastic waste and promoting a circular economy. By adopting sustainable packaging solutions and implementing life cycle thinking in product design, Unilever not only reduces its environmental impact but also establishes a benchmark for the industry.
+      </p>
+      <button
+        className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-6 py-3 text-base font-medium shadow transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-indigo-600"
+        onClick={() => setModalOpen(true)}
+      >
+        Read Case Study
+      </button>
+    </div>
+  </div>
+  {isModalOpen && (
+    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center">
+      <div className="bg-white rounded-lg p-6 md:p-8 lg:p-10 max-w-4xl mx-auto text-black overflow-auto" style={{ maxHeight: '90vh' }}>
+        <h2 className="text-xl font-bold mb-4">Sustainable Business Practices at Unilever</h2>
+        <p className="text-lg leading-relaxed">
+          Explore Unilever&apos;s commitment to sustainable development through its Dove Refillable Body Wash initiative. This case study outlines the process from raw material extraction to the end consumer, showcasing Unilever&apos;s strategies to reduce environmental impact and promote sustainable consumption.
+        </p>
+        <a
+          href="/casestudy.doc"
+          download="Unilever_Case_Study.doc"
+          className="inline-flex items-center justify-center mt-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition-colors"
+        >
+          Download Full Case Study
+        </a>
+        <button
+          className="mt-4 ml-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition-colors"
+          onClick={() => setModalOpen(false)}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  )}
+</section>
+
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div>
@@ -148,7 +149,7 @@ export function Component() {
               <p className="mb-6 text-lg leading-relaxed">
                 Through this process, I have gained a greater appreciation for the interconnectedness of global
                 challenges and the importance of taking a holistic approach to problem-solving. I am committed to using
-                my skills and expertise as a web developer to contribute to the achievement of the SDGs, whether it's
+                my skills and expertise as a web developer to contribute to the achievement of the SDGs, whether it&apos;s
                 through building eco-friendly websites, advocating for digital accessibility, or collaborating with
                 organizations that are making a positive impact on the world.
               </p>
