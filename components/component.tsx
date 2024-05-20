@@ -2,11 +2,18 @@
 'use client';
 import React, { useState } from 'react';
 
+type Certificate = {
+  id: number;
+  title: string;
+  src: string;
+  description: string;
+};
+
 export function Component() {
   const [isModalOpen, setModalOpen] = useState(false);
-  const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
 
-  const certificates = [
+  const certificates: Certificate[] = [
     { id: 1, title: "Measure Square Mobile", src: "/pdfs/measure-square.pdf", description: "Measure estimate for retail flooring" },
     { id: 2, title: "Design Thinking + Entrepreneurship", src: "/pdfs/design-thinking.pdf", description: "My 8 step launch program" },
     { id: 3, title: "Sales Skills", src: "/pdfs/sales-skills.pdf", description: "Complete sales training to increase sales" },
