@@ -158,14 +158,14 @@ export function Component() {
         </section>
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
           <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
-            <video 
-              controls 
-              style={{ width: '100%', height: 'auto' }}  // Corrected style object
-              allowFullScreen  // Corrected attribute for full screen
-            >
-              <source src="/Sustainable_development.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          <video
+  controls
+  style={{ width: '100%', height: 'auto' }}  // Ensures the video is responsive
+>
+  <source src="/Sustainable_development.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
           </div>
         </section>
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
