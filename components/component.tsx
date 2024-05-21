@@ -12,6 +12,10 @@ type Certificate = {
 export function Component() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
+  const [open, setOpen] = useState(false);
+
+  const [showPDFModal, setShowPDFModal] = useState(false);
+  const [showReflectiveModal, setShowReflectiveModal] = useState(false);
 
   const certificates: Certificate[] = [
     { id: 1, title: "Measure Square Mobile", src: "/pdfs/measure-square.pdf", description: "Measure estimate for retail flooring" },
@@ -34,7 +38,7 @@ export function Component() {
           <nav className="hidden md:flex items-center space-x-6">
             <a className="hover:text-gray-300 transition-colors font-medium" href="#">Home</a>
             <a className="hover:text-gray-300 transition-colors font-medium" href="#">About</a>
-            <a className="hover:text-gray-300 transition-colors font-medium" href="#">Portfolio</a>
+            <a className="hover:text-gray-300 transition-colors font-medium" href="#">Resume</a>
             <a className="hover:text-gray-300 transition-colors font-medium" href="#">Contact</a>
           </nav>
           <button className="md:hidden hover:text-gray-300 transition-colors">
@@ -130,43 +134,80 @@ export function Component() {
   )}
 </section>
 
-        <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Sulitest Results</h3>
-              <p className="mb-6 text-lg leading-relaxed">
-                I recently completed the Sulitest, a comprehensive assessment of my knowledge and understanding of the
-                United Nations Sustainable Development Goals (SDGs). The test covered a wide range of topics, from
-                environmental sustainability to social justice and economic development.
-              </p>
-              <p className="mb-6 text-lg leading-relaxed">
-                I am proud to share that I scored in the top 90th percentile, demonstrating my deep commitment to
-                sustainable development and my ability to think critically about global challenges.
-              </p>
-              <a
-                className="inline-flex items-center justify-center rounded-md bg-indigo-600 px-6 py-3 text-base font-medium shadow transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-indigo-600 disabled:pointer-events-none disabled:opacity-50"
-                href="#"
-              >
-                View Sulitest Certificate
-              </a>
-            </div>
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Reflective Piece</h3>
-              <p className="mb-6 text-lg leading-relaxed">
-                Completing the Sulitest has been a transformative experience for me. It has not only deepened my
-                understanding of the SDGs but also inspired me to further integrate sustainable practices into my daily
-                life and professional work.
-              </p>
-              <p className="mb-6 text-lg leading-relaxed">
-                Through this process, I have gained a greater appreciation for the interconnectedness of global
-                challenges and the importance of taking a holistic approach to problem-solving. I am committed to using
-                my skills and expertise as a web developer to contribute to the achievement of the SDGs, whether it&apos;s
-                through building eco-friendly websites, advocating for digital accessibility, or collaborating with
-                organizations that are making a positive impact on the world.
-              </p>
+    <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
+      <div className="flex flex-col items-center justify-center text-center">
+        <h3 className="text-3xl font-bold mb-4 text-white">Sulitest Results</h3>
+        <p className="mb-6 text-lg leading-relaxed text-gray-300">
+        I recently completed the Sulitest, a comprehensive assessment of my knowledge and understanding of the United Nations Sustainable Development Goals (SDGs). The test covered a wide range of topics, from environmental sustainability to social justice and economic development. I am proud to share my deep commitment to sustainable development and my ability to think critically about global challenges.
+        </p>
+        <div className="flex space-x-4">
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => setShowPDFModal(true)}>
+            View Sulitest Certificate
+          </button>
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => setShowReflectiveModal(true)}>
+            Read Reflective Piece
+          </button>
+        </div>
+      </div>
+
+      {showPDFModal && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg w-3/4 max-w-4xl p-8 text-black overflow-auto shadow-lg relative">
+            <object data="/sulitest_result.pdf" type="application/pdf" width="100%" height="600px">
+              <p>Your browser does not support PDFs. <a href="/sulitest_result.pdf" download="Sulitest_Certificate.pdf">Download the PDF</a> to view it.</p>
+            </object>
+            <button
+              className="absolute top-0 right-0 m-2 text-white bg-red-600 hover:bg-red-800 font-bold py-2 px-4 rounded"
+              onClick={() => setShowPDFModal(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {showReflectiveModal && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 overflow-y-auto h-full w-full" id="my-modal">
+          <div className="relative top-10 mx-auto p-5 border w-11/12 md:w-7/8 lg:w-11/12 xl:w-9/10 shadow-lg rounded-md bg-white transition duration-500 ease-in-out transform hover:scale-105">
+            <div className="mt-3 text-center">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">Reflective Piece on Sulitest</h3>
+              <div className="overflow-y-auto max-h-[80vh]">
+              <table className="mx-auto w-full text-sm text-left text-gray-500">
+                  <tbody>
+                    <tr>
+                      <td className="px-6 py-4 font-semibold">Describe</td>
+                      <td className="px-6 py-4">Sulitest is a valuable tool that is used for raising awareness about the environmental issues across the globe. It empowers academic individuals to make well-informed decisions and inspires them to actively contribute to global sustainability efforts.</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 font-semibold">Interpret</td>
+                      <td className="px-6 py-4">On completing the assessment, I felt I was comparatively more aware about the sustainability issues than anticipated and had a slight satisfaction on having performed well. The assessment introduced me to various facets of sustainability, mainly about social, environmental, and economic features.</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 font-semibold">Evaluate</td>
+                      <td className="px-6 py-4">This assessment effectively gauged my understanding of these issues, revealing areas where I had gaps in my knowledge. I learnt that every individual plays a critical role in promoting United Nations' Sustainable Development Goals (SDGs) for more responsible consumption and production.</td>
+                    </tr>
+                    <tr>
+                      <td className="px-6 py-4 font-semibold">Plan</td>
+                      <td className="px-6 py-4">Going forward, I shall be using eco-friendly and bio-degradable products as these are sustainable and beneficial for our ecosystem. Also, as a future Supply Chain and Logistic professional, I would want to work with organisations that adopt sustainability policies.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className="items-center px-4 py-3">
+                <button onClick={() => setShowReflectiveModal(false)} className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                  Close
+                </button>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      )}
+    </section>
+
+
+
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
           <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
           <video
@@ -179,6 +220,8 @@ export function Component() {
 
           </div>
         </section>
+
+        
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
       <h2 className="text-3xl font-bold text-center mb-8 text-white">My Certificates</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
@@ -196,7 +239,7 @@ export function Component() {
         <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
           <div className="bg-white rounded-lg w-3/4 max-w-4xl p-8 text-black overflow-auto shadow-lg animate-fade-in">
             <h3 className="text-xl font-bold mb-4">{selectedCertificate.title} Certificate</h3>
-            <object data={selectedCertificate.src} type="application/pdf" width="100%" style={{ minHeight: '500px' }}>
+            <object data={selectedCertificate.src} type="application/pdf" width="100%" height="500px">
               <p>Your browser does not support PDFs. <a href={selectedCertificate.src} download={`${selectedCertificate.title.replace(/\s+/g, '_')}_Certificate.pdf`}>Download the PDF</a> to view it.</p>
             </object>
             <button
