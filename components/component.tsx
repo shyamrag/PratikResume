@@ -186,7 +186,7 @@ export function Component() {
                     </tr>
                     <tr>
                       <td className="px-6 py-4 font-semibold">Evaluate</td>
-                      <td className="px-6 py-4">This assessment effectively gauged my understanding of these issues, revealing areas where I had gaps in my knowledge. I learnt that every individual plays a critical role in promoting United Nations' Sustainable Development Goals (SDGs) for more responsible consumption and production.</td>
+                      <td className="px-6 py-4">This assessment effectively gauged my understanding of these issues, revealing areas where I had gaps in my knowledge. I learnt that every individual plays a critical role in promoting United Nations&apos; Sustainable Development Goals (SDGs) for more responsible consumption and production.</td>
                     </tr>
                     <tr>
                       <td className="px-6 py-4 font-semibold">Plan</td>
