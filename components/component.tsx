@@ -136,47 +136,47 @@ export function Component() {
         </section>
 
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
-          <div className="flex flex-col items-center justify-center text-center">
-            <h3 className="text-3xl font-bold mb-4 text-white">Sulitest Results</h3>
-            <p className="mb-6 text-lg leading-relaxed text-gray-300">
-              I recently completed the Sulitest, a comprehensive assessment of my knowledge and understanding of the United Nations Sustainable Development Goals (SDGs). The test covered a wide range of topics, from environmental sustainability to social justice and economic development. I am proud to share my deep commitment to sustainable development and my ability to think critically about global challenges.
-            </p>
-            <div className="flex space-x-4">
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                      onClick={() => setShowPDFModal(true)}>
-                View Sulitest Certificate
-              </button>
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                      onClick={() => setShowReflectiveModal(true)}>
-                Read Reflective Piece
-              </button>
-            </div>
+      <div className="flex flex-col items-center justify-center text-center">
+        <h3 className="text-3xl font-bold mb-4 text-white">Sulitest Results</h3>
+        <p className="mb-6 text-lg leading-relaxed text-gray-300">
+          I recently completed the Sulitest, a comprehensive assessment of my knowledge and understanding of the United Nations Sustainable Development Goals (SDGs). The test covered a wide range of topics, from environmental sustainability to social justice and economic development. I am proud to share my deep commitment to sustainable development and my ability to think critically about global challenges.
+        </p>
+        <div className="flex space-x-4">
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => setShowPDFModal(true)}>
+            View Sulitest Certificate
+          </button>
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={() => setShowReflectiveModal(true)}>
+            Read Reflective Piece
+          </button>
+        </div>
+      </div>
+
+      {showPDFModal && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg w-3/4 max-w-4xl p-8 text-black overflow-auto shadow-lg relative">
+            <object data="/sulitest_result.pdf" type="application/pdf" width="100%" height="600px">
+              <p>Your browser does not support PDFs. <a href="/sulitest_result.pdf" download="Sulitest_Certificate.pdf">Download the PDF</a> to view it.</p>
+            </object>
+            <button
+              className="absolute top-0 right-0 m-2 text-white bg-red-600 hover:bg-red-800 font-bold py-2 px-4 rounded"
+              onClick={() => setShowPDFModal(false)}
+            >
+              Close
+            </button>
           </div>
+        </div>
+      )}
 
-          {showPDFModal && (
-            <div className="fixed inset-0 bg-gray-900 bg-opacity-75 flex justify-center items-center z-50">
-              <div className="bg-white rounded-lg w-3/4 max-w-4xl p-8 text-black overflow-auto shadow-lg relative">
-                <object data="/sulitest_result.pdf" type="application/pdf" width="100%" height="600px">
-                  <p>Your browser does not support PDFs. <a href="/sulitest_result.pdf" download="Sulitest_Certificate.pdf">Download the PDF</a> to view it.</p>
-                </object>
-                <button
-                  className="absolute top-0 right-0 m-2 text-white bg-red-600 hover:bg-red-800 font-bold py-2 px-4 rounded"
-                  onClick={() => setShowPDFModal(false)}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          )}
-
-          {showReflectiveModal && (
-            <div className="fixed inset-0 bg-gray-900 bg-opacity-75 overflow-y-auto h-full w-full" id="my-modal">
-              <div className="relative top-10 mx-auto p-5 border w-11/12 md:w-7/8 lg:w-11/12 xl:w-9/10 shadow-lg rounded-md bg-white transition duration-500 ease-in-out transform hover:scale-105">
-                <div className="mt-3 text-center">
-                  <h3 className="text-lg leading-6 font-medium text-gray-900">Reflective Piece on Sulitest</h3>
-                  <div className="overflow-y-auto max-h-[80vh]">
-                    <table className="mx-auto w-full text-sm text-left text-gray-500">
-                    <tbody>
+      {showReflectiveModal && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 overflow-y-auto h-full w-full" id="my-modal">
+          <div className="relative top-10 mx-auto p-5 border w-11/12 md:w-7/8 lg:w-11/12 xl:w-9/10 shadow-lg rounded-md bg-white transition duration-500 ease-in-out transform hover:scale-105">
+            <div className="mt-3 text-center">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">Reflective Piece on Sulitest</h3>
+              <div className="overflow-y-auto max-h-[80vh]">
+                <table className="mx-auto w-full text-sm text-left text-gray-500">
+                  <tbody>
                     <tr>
                       <td className="px-6 py-4 font-semibold">Describe</td>
                       <td className="px-6 py-4">
@@ -186,7 +186,7 @@ export function Component() {
                     <tr>
                       <td className="px-6 py-4 font-semibold">Interpret</td>
                       <td className="px-6 py-4">
-                        On completing the assessment, I felt I was comparatively more aware about the sustainability issues than anticipated and had a slight satisfaction on having performed well. The assessment effectively gauged my understanding of these issues, revealing areas where I had gaps in my knowledge. I learnt that every individual plays a critical role in promoting United Nations' Sustainable Development Goals (SDGs) for more responsible consumption and production. I felt empowered to take positive and sustainable approaches in my personal and professional life as a step towards a more sustainable future. The assessment introduced me to a new concept ‘Earth Overshoot Day’ and ways to reduce our individual and collective footprint by smart choices in our lifestyle and daily actions.
+                        On completing the assessment, I felt I was comparatively more aware about the sustainability issues than anticipated and had a slight satisfaction on having performed well. The assessment effectively gauged my understanding of these issues, revealing areas where I had gaps in my knowledge. I learnt that every individual plays a critical role in promoting United Nations&apos; Sustainable Development Goals (SDGs) for more responsible consumption and production. I felt empowered to take positive and sustainable approaches in my personal and professional life as a step towards a more sustainable future. The assessment introduced me to a new concept &apos;Earth Overshoot Day&apos; and ways to reduce our individual and collective footprint by smart choices in our lifestyle and daily actions.
                       </td>
                     </tr>
                     <tr>
@@ -202,18 +202,18 @@ export function Component() {
                       </td>
                     </tr>
                   </tbody>
-                    </table>
-                  </div>
-                  <div className="items-center px-4 py-3">
-                    <button onClick={() => setShowReflectiveModal(false)} className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                      Close
-                    </button>
-                  </div>
-                </div>
+                </table>
+              </div>
+              <div className="items-center px-4 py-3">
+                <button onClick={() => setShowReflectiveModal(false)} className="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                  Close
+                </button>
               </div>
             </div>
-          )}
-        </section>
+          </div>
+        </div>
+      )}
+    </section>
 
         <section className="mt-12 md:mt-16 lg:mt-24 bg-gray-800 bg-opacity-90 backdrop-blur-lg rounded-lg p-6 md:p-8 lg:p-10 shadow-lg">
           <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
